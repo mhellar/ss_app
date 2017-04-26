@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Show Template</title>
+
+    <style>
+        /**
+ * Tabs
+ */
+        
+        .tabs {
+            display: flex;
+            flex-wrap: wrap; // make sure it wraps
+        }
+        
+        .tabs label {
+            order: 1; // Put the labels first
+            display: block;
+            padding: 1rem 2rem;
+            margin-right: 0.2rem;
+            cursor: pointer;
+            background: #90CAF9;
+            font-weight: bold;
+            transition: background ease 0.2s;
+        }
+        
+        .tabs .tab {
+            order: 99; // Put the tabs last
+            flex-grow: 1;
+            width: 100%;
+            display: none;
+            padding: 1rem;
+            background: #fff;
+        }
+        
+        .tabs input[type="radio"] {
+            display: none;
+        }
+        
+        .tabs input[type="radio"]:checked+label {
+            background: #fff;
+        }
+        
+        .tabs input[type="radio"]:checked+label+.tab {
+            display: block;
+        }
+        
+        @media (max-width: 45em) {
+            .tabs .tab,
+            .tabs label {
+                order: initial;
+            }
+            .tabs label {
+                width: 100%;
+                margin-right: 0;
+                margin-top: 0.2rem;
+            }
+        }
+        /**
+ * Generic Styling
+*/
+        
+        body {
+            background: #eee;
+            min-height: 100vh;
+            box-sizing: border-box;
+            padding-top: 10vh;
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-weight: 300;
+            line-height: 1.5;
+            max-width: 60rem;
+            margin: 0 auto;
+            font-size: 112%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tabs">
+        <input type="radio" name="tabs" id="tabone" checked="checked">
+        <label for="tabone">Tab One</label>
+        <div class="tab">
+            <h1>Tab One Content</h1>
+            <iframe src="http://giphy.com/embed/pIMlKqgdZgvo4" frameborder=0 scrolling="no" width="800" height="600"></iframe>
+        </div>
+
+        <input type="radio" name="tabs" id="tabtwo">
+        <label for="tabtwo">Tab Two</label>
+        <div class="tab">
+            <h1>Tab Two Content</h1>
+            <iframe src="https://media.giphy.com/media/3o85xwc5c8DCoAF440/giphy.gif" frameborder=0 scrolling="no" width="800" height="600"></iframe>
+        </div>
+
+        <input type="radio" name="tabs" id="tabthree">
+        <label for="tabthree">Tab Three</label>
+        <div class="tab">
+            <h1>Tab Three Content</h1>
+            <iframe src="https://media.giphy.com/media/1lB2OXzJrMN1K/giphy.gif" frameborder=0 scrolling="no" width="800" height="600"></iframe>
+        </div>
+    </div>
+</body>
+<script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+</script>
+
+</html>
